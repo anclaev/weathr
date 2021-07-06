@@ -1,0 +1,35 @@
+@import "_vars.sass"
+
+html 
+    font-family: $fontFamily
+    font-size: $fontSize
+
+body 
+    height: 100vh
+    overflow-x: hidden 
+    background: $colorBackground
+    color: $colorDefault
+
+h1 
+    font-size: $h1Size
+
+h2 
+    font-size: $h2Size
+
+p 
+    font-size: $pSize
+
+
+::-webkit-scrollbar 
+    width: 7px
+    background: $colorBackground
+
+
+::-webkit-scrollbar-thumb 
+    background: $colorPrimaryText
+    opacity: .5
+
+
+@media (max-width: 576px) 
+    h1 
+        font-size: $h1SizePhone
