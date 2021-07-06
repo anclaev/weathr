@@ -1,14 +1,19 @@
-@import "_vars.sass"
+@import "_vars"
+
+@import "../../node_modules/materialize-css/sass/materialize.scss"
 
 html 
-    font-family: $fontFamily
-    font-size: $fontSize
+    //font-family: $fontFamily
+    //font-size: $fontSize
 
 body 
     height: 100vh
     overflow-x: hidden 
     background: $colorBackground
     color: $colorDefault
+
+h1, h2, p
+    margin: 0
 
 h1 
     font-size: $h1Size
@@ -19,6 +24,8 @@ h2
 p 
     font-size: $pSize
 
+.app
+    @extend .container
 
 ::-webkit-scrollbar 
     width: 7px
@@ -28,8 +35,3 @@ p
 ::-webkit-scrollbar-thumb 
     background: $colorPrimaryText
     opacity: .5
-
-
-@media (max-width: 576px) 
-    h1 
-        font-size: $h1SizePhone
