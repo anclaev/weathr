@@ -1,3 +1,4 @@
+import Helmet from '../../components/Helmet'
 import Title from '../../components/Title'
 import Cards from '../../containers/Cards'
 
@@ -23,6 +24,7 @@ const cards: ICard[] = [
 
 const HomePage: React.FC = () => (
   <section className="home">
+    <Helmet title="Weathr" />
     <Title className="home-title">{getHello()}</Title>
     <Cards className="home-cards" items={cards} />
   </section>
