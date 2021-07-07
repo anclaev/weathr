@@ -25,7 +25,7 @@ const cards: ICard[] = [
 const HomePage: React.FC = () => (
   <section className="home">
     <Helmet title="Weathr" />
-    <Title className="home-title">{getHello()}</Title>
+    <Title className="home-title title">{getHello()}</Title>
     <Cards className="home-cards" items={cards} />
   </section>
 )

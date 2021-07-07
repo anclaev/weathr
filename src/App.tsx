@@ -26,7 +26,7 @@ const App = () => (
         {({ match }) => (
           <CSSTransition
             timeout={1000}
-            classNames="wrapper"
+            classNames="app-wrapper"
             unmountOnExit
             in={match != null}
           >

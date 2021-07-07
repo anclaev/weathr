@@ -8,3 +8,15 @@ export const getHello = (): string => {
     return 'Доброй ночи.'
   return 'Здравствуйте.'
 }
+
+export const getToday = (): string => {
+  let date = new Date().toLocaleDateString(undefined, {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  })
+
+  return typeof date === 'string' && date.trim() !== ''
+    ? date[0].toUpperCase() + date.slice(1)
+    : 'Сегодня'
+}

@@ -30,3 +30,7 @@ export interface ICard {
   className: string
   primary?: boolean
 }
+
+export interface ICell {
+  val: number
+}
