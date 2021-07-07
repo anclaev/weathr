@@ -1,0 +1,43 @@
+.time-wrapper, .time-wrapper-item__text 
+    display: flex
+    flex-direction: row 
+    justify-content: center
+    
+.time-wrapper 
+    margin: 4rem 0
+
+    &-item
+        min-width: 9.5rem
+        padding: 2rem 0
+        
+        background: $colorBackground
+        border: 2px solid $colorPrimary
+        border-radius: 15px
+        box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.25)
+        text-align: center
+
+        &:nth-child(2)
+            margin: 0 3em
+
+        &__text
+            align-items: center
+            font-size: 4rem
+
+@media (max-width: 576px) 
+    .time-wrapper
+        flex-direction: column
+        align-items: center 
+        
+        &-item
+            width: 250px
+            padding: 1rem 2rem
+
+            &:nth-child(2)
+                margin: 2em 0
+
+            &__text:after 
+                display: block
+                margin-left: 2rem
+                font-size: 2rem
+                font-weight: 300
+                content: attr(data-label)

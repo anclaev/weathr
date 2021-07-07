@@ -20,3 +20,27 @@ export const getToday = (): string => {
     ? date[0].toUpperCase() + date.slice(1)
     : 'Сегодня'
 }
+
+export const getTimeLabel = (val: number, type: 'h' | 'm' | 's'): string => {
+  const decCases = [2, 0, 1, 1, 1, 2]
+
+  let decCache: number[] = []
+  let titles = []
+
+  switch (type) {
+    case 'h':
+      titles = ['час', 'часа', 'часов']
+      break
+    case 'm':
+      titles = ['минута', 'минуты', 'минут']
+      break
+    case 's':
+      titles = ['секунда', 'секунды', 'секунд']
+      break
+  }
+
+  if (!decCache[val])
+    decCache[val] =
+      val % 100 > 4 && val % 100 < 20 ? 2 : decCases[Math.min(val % 10, 5)]
+  return titles[decCache[val]]
+}

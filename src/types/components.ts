@@ -33,4 +33,6 @@ export interface ICard {
 
 export interface ICell {
   val: number
+  label: string
+  className: string
 }

@@ -1,8 +1,10 @@
 import { ICell } from '../../types/components'
 
 const Cell: React.FC<ICell> = (props) => (
-  <div>
-    <span>{props.val}</span>
+  <div className={props.className}>
+    <span className={props.className + '__text'} data-label={props.label}>
+      {props.val}
+    </span>
   </div>
 )
 

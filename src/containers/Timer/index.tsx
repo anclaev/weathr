@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react'
+import { CSSTransition } from 'react-transition-group'
 
-import { ITimeState } from '../../types/containers'
+import Cell from '../../components/Cell'
 
-const Time: React.FC = () => {
+import { getTimeLabel } from '../../funcs'
+
+import { ITime, ITimeState } from '../../types/containers'
+
+const Timer: React.FC<ITime> = (props) => {
   const [time, setTime] = useState<ITimeState>({
     hour: 0,
     minute: 0,
@@ -40,7 +45,25 @@ const Time: React.FC = () => {
     }
   })
 
-  return <div>{JSON.stringify(time)}</div>
+  return (
+    <div className={props.className}>
+      <Cell
+        className={props.className + '-item'}
+        val={time.hour}
+        label={getTimeLabel(time.hour, 'h')}
+      />
+      <Cell
+        className={props.className + '-item'}
+        val={time.minute}
+        label={getTimeLabel(time.minute, 'm')}
+      />
+      <Cell
+        className={props.className + '-item'}
+        val={time.second}
+        label={getTimeLabel(time.second, 's')}
+      />
+    </div>
+  )
 }
 
-export default Time
+export default Timer

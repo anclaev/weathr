@@ -1,6 +1,6 @@
 import Helmet from '../../components/Helmet'
 import Title from '../../components/Title'
-import Time from '../../containers/Time'
+import Timer from '../../containers/Timer'
 
 import { getToday } from '../../funcs'
 
@@ -8,7 +8,7 @@ const TimePage: React.FC = () => (
   <section className="time">
     <Helmet title="Время | Weathr" />
     <Title className="time-title title">{getToday()}</Title>
-    <Time />
+    <Timer className="time-wrapper" />
   </section>
 )
 
