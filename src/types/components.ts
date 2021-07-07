@@ -12,7 +12,9 @@ export interface IMenu {
 }
 
 export interface IMenuItem {
+  to: string
   text: string
   icon: string
   className?: string
+  activeClassName?: string
 }

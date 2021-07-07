@@ -7,7 +7,9 @@ const renderMenuItems = (items: IMenuItem[], className?: string) =>
     <MenuItem
       text={item.text}
       icon={item.icon}
+      to={item.to}
       className={className ? className + '-item' : undefined}
+      activeClassName={className ? className + '-item--active' : undefined}
     />
   ))
 

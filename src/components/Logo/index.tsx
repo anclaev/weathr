@@ -1,5 +1,8 @@
-import logo from '../../assets/logo.svg'
+import { Link } from 'react-router-dom'
+
 import { ILogo } from '../../types/components'
+
+import logo from '../../assets/logo.svg'
 
 const Logo: React.FC<ILogo> = (props) => {
   const node = (
@@ -19,12 +22,12 @@ const Logo: React.FC<ILogo> = (props) => {
   )
 
   return props.href ? (
-    <a
-      href={props.href}
+    <Link
+      to={props.href}
       className={`logo${props.className ? ` ${props.className}` : ''}`}
     >
       {node}
-    </a>
+    </Link>
   ) : (
     node
   )

@@ -7,10 +7,12 @@ const menuItems: IMenuItem[] = [
   {
     text: 'Время',
     icon: 'access_time',
+    to: '/time',
   },
   {
     text: 'Погода',
     icon: 'cloud_queue',
+    to: '/weather',
   },
 ]
 
