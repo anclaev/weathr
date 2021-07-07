@@ -1,14 +1,17 @@
 import { Route, Switch } from 'react-router'
 
 import Header from './containers/Header'
+import HomePage from './pages/Home'
+import WeatherPage from './pages/Weather'
+import TimePage from './pages/Time'
 
 const App = () => (
   <div className="app">
     <Header />
     <Switch>
-      <Route path="/" exact component={() => <div>Home Page</div>} />
-      <Route path="/time" exact component={() => <div>Time Page</div>} />
-      <Route path="/weather" exact component={() => <div>Weather Page</div>} />
+      <Route path="/" exact component={HomePage} />
+      <Route path="/time" component={TimePage} />
+      <Route path="/weather" component={WeatherPage} />
     </Switch>
   </div>
 )

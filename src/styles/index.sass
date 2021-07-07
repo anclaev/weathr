@@ -19,6 +19,9 @@ h1, h2, p
 
 h1 
     font-size: $h1Size
+    line-height: $h1LineHeight
+    text-align: center
+    font-weight: 300
 
 h2 
     font-size: $h2Size
@@ -34,3 +37,11 @@ p
 ::-webkit-scrollbar-thumb 
     background: $colorPrimary
     opacity: .5
+
+@media (max-width: 576px)
+    h1 
+        font-size: $h1SizePhone
+        line-height: $h1LineHeightPhone
+        
+    html
+        font-size: 14px 

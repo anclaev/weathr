@@ -18,3 +18,7 @@ export interface IMenuItem {
   className?: string
   activeClassName?: string
 }
+
+export interface ITitle {
+  className?: string
+}
