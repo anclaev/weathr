@@ -6,11 +6,11 @@ const Logo: React.FC<ILogo> = (props) => {
     <img
       src={logo}
       className={
-        props.className
-          ? props.className + '__img'
-          : props.href
+        props.href
           ? 'logo__img'
-          : 'logo'
+          : 'logo' + props.className
+          ? ` ${props.className}`
+          : ''
       }
       alt={props.alt ?? 'Img: Weathr Logo'}
       width={props.width}
@@ -19,7 +19,10 @@ const Logo: React.FC<ILogo> = (props) => {
   )
 
   return props.href ? (
-    <a href={props.href} className={props.className ?? 'logo'}>
+    <a
+      href={props.href}
+      className={`logo${props.className ? ` ${props.className}` : ''}`}
+    >
       {node}
     </a>
   ) : (

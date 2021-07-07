@@ -1,10 +1,12 @@
-@import "_vars"
-
 @import "../../node_modules/materialize-css/sass/materialize.scss"
 
+@import "_vars"
+@import "_components"
+@import "_pages"
+
 html 
-    //font-family: $fontFamily
-    //font-size: $fontSize
+    font-family: $fontFamily
+    font-size: $fontSize
 
 body 
     height: 100vh
@@ -24,14 +26,11 @@ h2
 p 
     font-size: $pSize
 
-.app
-    @extend .container
-
 ::-webkit-scrollbar 
     width: 7px
     background: $colorBackground
 
 
 ::-webkit-scrollbar-thumb 
-    background: $colorPrimaryText
+    background: $colorPrimary
     opacity: .5

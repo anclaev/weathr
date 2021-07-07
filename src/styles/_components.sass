@@ -1,0 +1,59 @@
+.logo__img 
+    height: 2rem
+
+.menu
+    font-size: inherit
+    margin: 0
+
+    &-item
+        position: relative
+        height: 100%
+        padding: 0 10px
+        cursor: pointer
+        user-select: none
+
+        &--active
+            &:after
+                width: 90% !important
+                background: rgba($colorLink, .7) !important
+            & i 
+                color: $colorLink
+
+        &:after 
+            content: ''
+            position: absolute
+            width: 0px
+            height: 1.5px
+            bottom: -5px
+            left: 51%
+            transform: translateX(-50%)
+            background: $colorPrimary
+            transition: width .3s, background .3s
+
+        &:hover
+            &:after
+                width: 90%
+
+        &:not(:last-child)
+            margin-right: 2.5em
+
+        &__icon
+                color: $colorPrimary
+                transition: color .3s
+                margin-right: 10px
+                font-size: 28px
+
+.menu, .menu-item
+    display: flex
+    align-items: center
+
+
+@media (max-width: 576px)
+    .menu
+        font-size: 7px
+
+        &-item
+            &__icon
+                margin-right: 0
+            &__text
+                display: none
