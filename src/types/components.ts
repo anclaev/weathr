@@ -22,3 +22,11 @@ export interface IMenuItem {
 export interface ITitle {
   className?: string
 }
+
+export interface ICard {
+  title: string
+  text: string
+  link: string
+  className: string
+  primary?: boolean
+}

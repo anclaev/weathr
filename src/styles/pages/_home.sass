@@ -1,7 +1,50 @@
 .home
     &-title
         margin-top: 2rem
+        animation: show 1s
 
+    &-cards
+        display: flex
+        justify-content: center
+        margin-top: 3rem
+
+        &__item
+            background-color: $colorPrimaryCardR
+
+            &:not(:last-child) 
+                margin-right: 3rem
+
+            &--primary
+                background-color: $colorPrimaryCardL
+            
+            &--r
+                text-align: right
+
+            &--l 
+                text-align: left 
+
+            & .card-action
+                border-top: 1px solid #78ACFF
+
+            & a 
+                display: block
+                width: 100%
+                color: $colorLink !important
+                
+                &:hover 
+                    color: $colorLinkHover !important
+
+@media (max-width: 768px)
+    .home-cards
+        flex-direction: column 
+
+        &__item
+            &:nth-child(2)
+                text-align: right 
+
+            &:not(:last-child)
+                margin-right: 0
+                margin-bottom: 1em
 
 @media (max-width: 576px)
     .home-title

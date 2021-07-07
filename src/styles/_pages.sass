@@ -4,9 +4,15 @@
 
 .app
     @extend .container
+    position: relative
     height: 100%
 
     &-header 
         display: flex 
         justify-content: space-between
         padding: 2.5rem 0
+    
+    & section
+        position: absolute
+        top: 112px
+        width: 100% 

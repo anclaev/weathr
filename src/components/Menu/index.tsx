@@ -1,4 +1,4 @@
-import MenuItem from './Item'
+import MenuItem from './MenuItem'
 
 import { IMenu, IMenuItem } from '../../types/components'
 
