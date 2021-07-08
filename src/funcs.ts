@@ -1,3 +1,9 @@
+export enum TimeTypes {
+  'h' = 'h',
+  'm' = 'm',
+  's' = 's',
+}
+
 export const getHello = (): string => {
   let currentHour = new Date().getHours()
 
@@ -21,11 +27,11 @@ export const getToday = (): string => {
     : 'Сегодня'
 }
 
-export const getTimeLabel = (val: number, type: 'h' | 'm' | 's'): string => {
+export const getTimeLabel = (val: number, type: TimeTypes): string => {
   const decCases = [2, 0, 1, 1, 1, 2]
 
   let decCache: number[] = []
-  let titles = []
+  let titles: string[] = []
 
   switch (type) {
     case 'h':

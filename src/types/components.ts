@@ -1,3 +1,5 @@
+import { TimeTypes } from '../funcs'
+
 export interface ILogo {
   href?: string
   width?: number
@@ -32,7 +34,11 @@ export interface ICard {
 }
 
 export interface ICell {
-  val: number
-  label: string
-  className: string
+  val: string
+  label?: string
+  className?: string
+}
+
+export interface ICellRender extends ICell {
+  type: TimeTypes
 }

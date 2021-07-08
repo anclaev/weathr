@@ -1,37 +1,46 @@
 import { useState, useEffect } from 'react'
-import { CSSTransition } from 'react-transition-group'
 
 import Cell from '../../components/Cell'
 
-import { getTimeLabel } from '../../funcs'
+import { getTimeLabel, TimeTypes } from '../../funcs'
 
 import { ITime, ITimeState } from '../../types/containers'
+import { ICellRender } from '../../types/components'
+
+const renderCells = (items: ICellRender[], className: string) =>
+  items.map((item, key) => (
+    <Cell
+      className={className + '-item'}
+      val={item.val.toString().length !== 1 ? item.val : '0' + item.val}
+      label={getTimeLabel(Number(item.val), item.type)}
+      key={key}
+    />
+  ))
 
 const Timer: React.FC<ITime> = (props) => {
   const [time, setTime] = useState<ITimeState>({
-    hour: 0,
-    minute: 0,
-    second: 0,
+    hour: '',
+    minute: '',
+    second: '',
   })
 
   const timeChangeHandler = (localeTime: string) => {
     let newTime = time
 
     newTime.hour =
-      newTime.hour !== Number(localeTime.split(':')[0])
-        ? Number(localeTime.split(':')[0])
+      newTime.hour !== localeTime.split(':')[0]
+        ? localeTime.split(':')[0]
         : newTime.hour
 
     newTime.minute =
-      newTime.minute !== Number(localeTime.split(':')[1])
-        ? Number(localeTime.split(':')[1])
+      newTime.minute !== localeTime.split(':')[1]
+        ? localeTime.split(':')[1]
         : newTime.minute
 
     newTime.second =
-      newTime.second !== Number(localeTime.split(':')[2])
-        ? Number(localeTime.split(':')[2])
+      newTime.second !== localeTime.split(':')[2]
+        ? localeTime.split(':')[2]
         : newTime.second
-
     setTime({ ...time, ...newTime })
   }
 
@@ -47,21 +56,23 @@ const Timer: React.FC<ITime> = (props) => {
 
   return (
     <div className={props.className}>
-      <Cell
-        className={props.className + '-item'}
-        val={time.hour}
-        label={getTimeLabel(time.hour, 'h')}
-      />
-      <Cell
-        className={props.className + '-item'}
-        val={time.minute}
-        label={getTimeLabel(time.minute, 'm')}
-      />
-      <Cell
-        className={props.className + '-item'}
-        val={time.second}
-        label={getTimeLabel(time.second, 's')}
-      />
+      {renderCells(
+        [
+          {
+            val: time.hour,
+            type: TimeTypes.h,
+          },
+          {
+            val: time.minute,
+            type: TimeTypes.m,
+          },
+          {
+            val: time.second,
+            type: TimeTypes.s,
+          },
+        ],
+        props.className
+      )}
     </div>
   )
 }

@@ -28,6 +28,7 @@ const App = () => (
             timeout={1000}
             classNames="app-wrapper"
             unmountOnExit
+            mountOnEnter
             in={match != null}
           >
             <Component />

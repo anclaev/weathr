@@ -1,9 +1,9 @@
 import { ICard } from './components'
 
 export interface ITimeState {
-  hour: number
-  minute: number
-  second: number
+  hour: string
+  minute: string
+  second: string
 }
 
 export interface ICards {
