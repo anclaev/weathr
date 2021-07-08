@@ -1,0 +1,37 @@
+.weather-form 
+    display: flex
+    justify-content: center
+    align-items: center 
+
+    &-input
+        max-width: 400px
+        width: 80%
+
+        & input 
+            color: $colorDefault
+            border-bottom: 1px solid $colorPrimary !important
+            box-shadow: 0 1px 0 0 $colorPrimary !important  
+
+            & + label.active
+                color: $colorPrimary !important
+                transform: translateY(-14px) translateX(-11px) scale(0.8) !important
+
+            &[data-valid='true']
+                @extend .valid 
+                border-bottom: 1px solid $colorPrimaryCardL !important
+                box-shadow: 0 1px 0 0 $colorPrimaryCardL !important  
+
+
+                & + label
+                    color: $colorPrimaryCardL !important
+
+    &-button 
+        display: flex
+        align-items: center 
+        justify-content: center 
+        min-width: 56px
+        margin-left: 3em
+        background: $colorPrimary !important
+
+        &:hover 
+            background: $colorPrimaryCardL !important

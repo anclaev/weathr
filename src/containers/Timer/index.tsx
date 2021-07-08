@@ -4,7 +4,7 @@ import Cell from '../../components/Cell'
 
 import { getTimeLabel, TimeTypes } from '../../funcs'
 
-import { ITime, ITimeState } from '../../types/containers'
+import { IContainer, ITimeState } from '../../types/containers'
 import { ICellRender } from '../../types/components'
 
 const renderCells = (items: ICellRender[], className: string) =>
@@ -17,7 +17,7 @@ const renderCells = (items: ICellRender[], className: string) =>
     />
   ))
 
-const Timer: React.FC<ITime> = (props) => {
+const Timer: React.FC<IContainer> = (props) => {
   const [time, setTime] = useState<ITimeState>({
     hour: '00',
     minute: '00',

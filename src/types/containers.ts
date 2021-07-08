@@ -6,11 +6,11 @@ export interface ITimeState {
   second: string
 }
 
-export interface ICards {
-  items: ICard[]
+export interface IContainer {
   className: string
 }
 
-export interface ITime {
+export interface ICards extends IContainer {
+  items: ICard[]
   className: string
 }

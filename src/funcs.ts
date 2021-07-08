@@ -1,3 +1,7 @@
+import { useState } from 'react'
+
+// Weather API KEY: 9a2f3c0844d466865551ca8df54f619a
+
 export enum TimeTypes {
   'h' = 'h',
   'm' = 'm',
@@ -49,4 +53,20 @@ export const getTimeLabel = (val: number, type: TimeTypes): string => {
     decCache[val] =
       val % 100 > 4 && val % 100 < 20 ? 2 : decCases[Math.min(val % 10, 5)]
   return titles[decCache[val]]
+}
+
+export const useInput = (initialValue: string, minLength?: number) => {
+  const [value, setValue] = useState(initialValue)
+  const [valid, setValid] = useState(false)
+
+  const onChange = (e: any) => {
+    if (minLength) setValid(e.target.value.length >= minLength)
+    setValue(e.target.value)
+  }
+
+  return {
+    value,
+    valid,
+    onChange,
+  }
 }

@@ -1,44 +1,51 @@
 import { TimeTypes } from '../funcs'
 
-export interface ILogo {
+export interface IComponent {
+  className?: string
+}
+
+export interface ILogo extends IComponent {
   href?: string
   width?: number
   height?: number
-  className?: string
   alt?: string
 }
 
-export interface IMenu {
+export interface IMenu extends IComponent {
   items: IMenuItem[]
-  className?: string
 }
 
-export interface IMenuItem {
+export interface IMenuItem extends IComponent {
   to: string
   text: string
   icon: string
-  className?: string
   activeClassName?: string
 }
 
-export interface ITitle {
-  className?: string
-}
-
-export interface ICard {
+export interface ICard extends IComponent {
   title: string
   text: string
   link: string
-  className: string
   primary?: boolean
 }
 
-export interface ICell {
+export interface ICell extends IComponent {
   val: string
   label?: string
-  className?: string
 }
 
 export interface ICellRender extends ICell {
   type: TimeTypes
+}
+
+export interface IInput extends IComponent {
+  value: string
+  valid: boolean
+  placeholder: string
+  onChange: React.ChangeEventHandler
+}
+
+export interface IButton extends IComponent {
+  text?: string
+  onClick: () => void
 }

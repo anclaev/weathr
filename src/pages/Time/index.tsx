@@ -7,7 +7,7 @@ import { getToday } from '../../funcs'
 const TimePage: React.FC = () => (
   <section className="time">
     <Helmet title="Время | Weathr" />
-    <Title className="time-title title">{getToday()}</Title>
+    <Title className="time-title">{getToday()}</Title>
     <Timer className="time-wrapper" />
   </section>
 )
