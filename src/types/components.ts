@@ -53,3 +53,15 @@ export interface IButton extends IComponent {
 export interface IIcon extends IComponent {
   src: string
 }
+
+export interface ITooltipState {
+  title: string
+  status: boolean
+  x: number
+  y: number
+}
+
+export interface ITooltipContext {
+  state: ITooltipState
+  setState: (state: ITooltipState) => void
+}

@@ -37,6 +37,7 @@
             &:hover 
                 background: $colorPrimaryCardL !important
     &-container 
+        position: relative
         margin-top: 2rem
 
     &-poster 
@@ -127,6 +128,13 @@
                 &:nth-child(2)
                     left: 50%
                     transform: translate(-50%, -50%)
+
+                    & div
+                        cursor: pointer
+                        width: 20px 
+                        height: 20px 
+                        border-radius: 20px
+                        background: $colorLink
 
                 &:nth-child(3)
                     right: -36px
