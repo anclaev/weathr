@@ -1,37 +1,187 @@
-.weather-form 
-    display: flex
+.weather-form, .weather-form-button, .weather-container, .weather-poster, .weather-info-wind, .weather-info-wind-item
+    display: flex 
+
+.weather-form, .weather-form-button
     justify-content: center
     align-items: center 
 
-    &-input
-        max-width: 400px
-        width: 80%
+.weather
+    &-form 
+        &-input
+            max-width: 400px
+            width: 80%
 
-        & input 
-            color: $colorDefault
-            border-bottom: 1px solid $colorPrimary !important
-            box-shadow: 0 1px 0 0 $colorPrimary !important  
+            & input 
+                color: $colorDefault
+                border-bottom: 1px solid $colorPrimary !important
+                box-shadow: 0 1px 0 0 $colorPrimary !important  
 
-            & + label.active
-                color: $colorPrimary !important
-                transform: translateY(-14px) translateX(-11px) scale(0.8) !important
+                & + label.active
+                    color: $colorPrimary !important
+                    //transform: translateY(-14px) translateX(-11px) scale(0.8) !important
 
-            &[data-valid='true']
-                @extend .valid 
-                border-bottom: 1px solid $colorPrimaryCardL !important
-                box-shadow: 0 1px 0 0 $colorPrimaryCardL !important  
+                &[data-valid='true']
+                    @extend .valid 
+                    border-bottom: 1px solid $colorPrimaryCardL !important
+                    box-shadow: 0 1px 0 0 $colorPrimaryCardL !important  
 
 
-                & + label
-                    color: $colorPrimaryCardL !important
+                    & + label
+                        color: $colorPrimaryCardL !important
 
-    &-button 
-        display: flex
-        align-items: center 
-        justify-content: center 
-        min-width: 56px
-        margin-left: 3em
-        background: $colorPrimary !important
+        &-button 
+            min-width: 56px
+            margin-left: 3em
+            background: $colorPrimary !important
+        
+            &:hover 
+                background: $colorPrimaryCardL !important
+    &-container 
+        margin-top: 2rem
 
-        &:hover 
-            background: $colorPrimaryCardL !important
+    &-poster 
+        flex-direction: column
+        align-items: center
+
+        &__img 
+            width: 250px
+            height: 250px
+
+        & > span
+            padding-top: 1rem
+            font-size: 2rem
+            font-weight: 300 
+    &-info 
+        margin-top: 1.5rem
+        margin-left: 7.5rem
+        flex-grow: 1
+        font-size: 1.5rem
+
+        &-temp
+            position: relative
+            margin: 70px 0 
+
+            &-val, &-val__dott
+                position: absolute 
+                top: 50%
+                transform: translateY(-50%)
+
+            &-val
+                width: 72px
+                height: 120px
+
+                &__icon 
+                    position: absolute
+                    bottom: -5px
+                    left: 50%
+                    transform: translateX(-50%)
+                    width: 36px
+                    height: 36px
+
+                    & img 
+                        width: inherit 
+                        height: inherit 
+
+                    &[data-label]
+                        left: 30%
+
+                        &:after
+                            content: attr(data-label)
+                            left: 100%
+                            bottom: -2px
+
+                & span
+                    &:after
+                        position: absolute
+                        font-size: 1rem
+                        font-weight: 300
+
+                    &:first-child
+                        position: absolute
+                        left: 40%
+                        transform: translateX(-50%)
+
+                        &:after
+                            content:'°c'
+                            left: calc(100% + 5px)
+
+                &__dott
+                    width: 15px
+                    height: 15px 
+                    border-radius: 15px
+                    background: $colorDefault
+                    
+                    &:first-child 
+                        left: 0
+
+                    &:nth-child(2)
+                        left: 50%
+                        transform: translate(-50%, -50%)
+
+                    &:nth-child(3)
+                        right: 0
+
+                &:first-child 
+                    left: -36px
+
+                &:nth-child(2)
+                    left: 50%
+                    transform: translate(-50%, -50%)
+
+                &:nth-child(3)
+                    right: -36px
+
+            &__line
+                height: 3px
+                background: $colorPrimary
+
+        &-wind 
+            padding: 50px 0 80px 0
+            justify-content: space-around
+
+            &-item
+                align-items: center
+
+                &__val
+                    position: relative
+                    margin: 5px 0 0 20px
+
+                    &:after 
+                        position: absolute
+                        left: calc(100% + 5px)
+                        min-width: 30px
+                        content: attr(data-label)
+                        font-size: 1rem
+                        font-weight: 300
+
+@media (max-width: 992px)
+    .weather-info
+        margin-left: 5rem
+
+@media (max-width: 768px)
+    .weather-info
+        margin-left: 2rem
+
+@media (max-width: 576px) 
+    .weather
+        &-container
+            flex-direction: column 
+
+        &-poster
+            & > span
+                padding: 0.5rem
+
+            &__img 
+                width: 150px
+                height: 150px
+
+        &-info
+            width: 80%
+            margin: 0 auto
+            margin-top: 3rem
+
+            &-wind
+                justify-content: space-between
+
+                &__val
+                    margin: 5px 0 0 10px

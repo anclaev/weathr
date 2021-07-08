@@ -15,7 +15,7 @@ const Icon: React.FC<IIcon> = (props) => (
   <img
     className={props.className}
     src={icons[props.src as keyof typeof icons] ?? icons.sun}
-    alt={props.src}
+    alt={`Icon: ${props.src}`}
   />
 )
 

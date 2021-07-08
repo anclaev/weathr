@@ -14,3 +14,7 @@ export interface ICards extends IContainer {
   items: ICard[]
   className: string
 }
+
+export interface IWeather extends IContainer {
+  title: string
+}
