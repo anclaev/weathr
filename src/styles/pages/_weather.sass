@@ -6,6 +6,20 @@
     align-items: center 
 
 .weather
+    &-title-a
+        &-enter-active 
+            animation: showTitle .5s forwards
+
+        &-exit-active
+            animation: hideTitle .5s forwards
+   
+    &-a 
+        &-enter-active 
+            animation: show .5s forwards
+
+        &-exit-active
+            animation: hide .5s forwards
+
     &-form 
         &-input
             max-width: 400px

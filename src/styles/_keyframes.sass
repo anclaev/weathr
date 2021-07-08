@@ -10,7 +10,30 @@
     to
         opacity: 0
         
+@keyframes hideTitle     
+    from
+        margin: 2rem 0
+        height: auto
+        //transform: translateY(0)
+        opacity: 1
 
+    to 
+        margin: 0
+        height: 0
+        //transform: translateY(-100%)
+        opacity: 0
+
+@keyframes showTitle 
+    from 
+        margin: 0
+        height: 0
+        opacity: 0
+    
+    to
+        margin: 2rem 0
+        height: auto
+        opacity: 1
+  
 @keyframes fade-in
     0%
         z-index: 99
@@ -48,3 +71,28 @@
 
 .app-wrapper-exit-active
     animation: fade-out 1s forwards
+
+@media (max-width: 576px)
+    @keyframes hideTitle     
+        from
+            margin: 0.5rem 0 1rem 0
+            height: auto
+            //transform: translateY(0)
+            opacity: 1
+
+        to 
+            margin: 0
+            height: 0
+            //transform: translateY(-100%)
+            opacity: 0
+
+    @keyframes showTitle 
+        from 
+            margin: 0
+            height: 0
+            opacity: 0
+            
+        to
+            margin: 0.5rem 0 1rem 0
+            height: auto
+            opacity: 1

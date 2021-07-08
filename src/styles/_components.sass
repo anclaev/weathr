@@ -4,8 +4,7 @@
 
 .title
     margin: 2rem 0
-    animation: show 1s
-
+ 
 .tooltip 
     position: absolute
     padding: 0.5rem 1.5rem
@@ -14,11 +13,11 @@
     box-shadow: 0px 10px 50px rgb(0 0 0 / 25%)
     transform: translateX(-50%)
 
-.tooltip-enter-active 
-    animation: show .5s forwards
+    &-enter-active 
+        animation: show .5s forwards
 
-.tooltip-exit-active
-    animation: hide .5s forwards
+    &-exit-active
+        animation: hide .5s forwards
 
 
 .menu
@@ -72,7 +71,7 @@
 
 @media (max-width: 576px)
     .title
-        margin-top: 0.5rem
+        margin: 0.5rem 0 1rem 0
 
     .menu
         font-size: 7px

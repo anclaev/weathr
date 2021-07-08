@@ -67,7 +67,7 @@ export const useInput = (initialValue: string, minLength?: number) => {
   return {
     value,
     valid,
+    setValue,
     onChange,
   }
 }
-

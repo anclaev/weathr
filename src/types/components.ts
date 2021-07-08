@@ -42,6 +42,7 @@ export interface IInput extends IComponent {
   value: string
   valid: boolean
   placeholder: string
+  ref?: React.RefObject<HTMLInputElement>
   onChange: React.ChangeEventHandler
 }
 
