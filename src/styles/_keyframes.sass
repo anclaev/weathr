@@ -6,17 +6,21 @@
 
 @keyframes fade-in
     0%
+        z-index: 99
         opacity: 0
         transform: translateX(-400px)
     100%
+        z-index: 0
         transform: translateX(0)
         opacity: 1
 
 @keyframes fade-out
     0%
+        z-index: 99
         opacity: 1
         transform: translateX(0)
     100%
+        z-index: 0
         transform: translateX(400px)
         opacity: 0
             

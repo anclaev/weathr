@@ -19,9 +19,9 @@ const renderCells = (items: ICellRender[], className: string) =>
 
 const Timer: React.FC<ITime> = (props) => {
   const [time, setTime] = useState<ITimeState>({
-    hour: '',
-    minute: '',
-    second: '',
+    hour: '00',
+    minute: '00',
+    second: '00',
   })
 
   const timeChangeHandler = (localeTime: string) => {
