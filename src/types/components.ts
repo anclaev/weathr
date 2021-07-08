@@ -49,3 +49,7 @@ export interface IButton extends IComponent {
   text?: string
   onClick: () => void
 }
+
+export interface IIcon extends IComponent {
+  src: string
+}
