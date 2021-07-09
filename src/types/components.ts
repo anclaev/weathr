@@ -41,9 +41,10 @@ export interface ICellRender extends ICell {
 export interface IInput extends IComponent {
   value: string
   valid: boolean
+  disabled?: boolean
   placeholder: string
-  ref?: React.RefObject<HTMLInputElement>
   onChange: React.ChangeEventHandler
+  onKeyPress: any
 }
 
 export interface IButton extends IComponent {

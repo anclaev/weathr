@@ -16,7 +16,16 @@ export interface ICards extends IContainer {
 }
 
 export interface IWeather extends IContainer {
+  icon: string
   title: string
+  water: number
+  wind: number
+  temp: {
+    val: number
+    min: number
+    max: number
+    feels: number
+  }
 }
 
 export interface IWeatherForm extends IContainer {
@@ -24,7 +33,6 @@ export interface IWeatherForm extends IContainer {
   setPageState: (state: IWeatherState) => void
 }
 
-export interface IWeatherState {
+export interface IWeatherState extends IWeather {
   status: boolean
-  title: string
 }

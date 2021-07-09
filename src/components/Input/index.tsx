@@ -8,7 +8,8 @@ const Input: React.FC<IInput> = (props) => (
       value={props.value}
       data-valid={props.valid}
       onChange={props.onChange}
-      ref={props.ref}
+      onKeyPress={props.onKeyPress}
+      disabled={props.disabled}
     />
     <label htmlFor={props.className}>{props.placeholder}</label>
   </div>

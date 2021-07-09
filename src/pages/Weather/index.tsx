@@ -9,8 +9,18 @@ import WeatherForm from '../../containers/WeatherForm'
 import WeatherContainer from '../../containers/WeatherContainer'
 
 const initialState: IWeatherState = {
+  className: 'weather',
   status: false,
   title: 'Погода',
+  icon: '',
+  water: 0,
+  wind: 0,
+  temp: {
+    val: 0,
+    min: 0,
+    max: 0,
+    feels: 0,
+  },
 }
 
 const WeatherPage: React.FC = () => {
@@ -42,7 +52,7 @@ const WeatherPage: React.FC = () => {
         mountOnEnter
         in={weather.status}
       >
-        <WeatherContainer className="weather" title="Ясно" />
+        <WeatherContainer {...weather} />
       </CSSTransition>
     </section>
   )

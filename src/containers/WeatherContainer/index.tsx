@@ -19,7 +19,7 @@ const WeatherContainer: React.FC<IWeather> = (props) => {
 
     newState = {
       status: status,
-      title: 'Ощущается как ',
+      title: `Ощущается как ${props.temp.feels}°c`,
       x: status ? e?.pageX || 0 : state.x,
       y: status ? e?.pageY || 0 : state.y,
     }
@@ -30,13 +30,18 @@ const WeatherContainer: React.FC<IWeather> = (props) => {
   return (
     <div className={`${props.className}-container`}>
       <div className={`${props.className}-poster`}>
-        <Icon src="sun" className={`${props.className}-poster__img rotate`} />
+        <Icon
+          src={props.icon}
+          className={`${props.className}-poster__img${
+            props.icon === 'sun' ? ' rotate' : ''
+          }`}
+        />
         <span>{props.title}</span>
       </div>
       <div className={`${props.className}-info`}>
         <div className={`${props.className}-info-temp`}>
           <div className={`${props.className}-info-temp-val`}>
-            <span>27</span>
+            <span>{props.temp.min}</span>
             <div className={`${props.className}-info-temp-val__dott`}></div>
             <span
               className={`${props.className}-info-temp-val__icon`}
@@ -46,7 +51,7 @@ const WeatherContainer: React.FC<IWeather> = (props) => {
             </span>
           </div>
           <div className={`${props.className}-info-temp-val`}>
-            <span>31</span>
+            <span>{props.temp.val}</span>
             <div
               className={`${props.className}-info-temp-val__dott`}
               onMouseOver={(e: React.MouseEvent<HTMLDivElement>) =>
@@ -62,7 +67,7 @@ const WeatherContainer: React.FC<IWeather> = (props) => {
             </span>
           </div>
           <div className={`${props.className}-info-temp-val`}>
-            <span>33</span>
+            <span>{props.temp.max}</span>
             <div className={`${props.className}-info-temp-val__dott`}></div>
             <span
               className={`${props.className}-info-temp-val__icon`}
@@ -83,7 +88,7 @@ const WeatherContainer: React.FC<IWeather> = (props) => {
               className={`${props.className}-info-wind-item__val`}
               data-label="%"
             >
-              21
+              {props.water}
             </span>
           </div>
           <div className={`${props.className}-info-wind-item`}>
@@ -95,7 +100,7 @@ const WeatherContainer: React.FC<IWeather> = (props) => {
               className={`${props.className}-info-wind-item__val`}
               data-label="м/с"
             >
-              2.3
+              {props.wind}
             </span>
           </div>
         </div>

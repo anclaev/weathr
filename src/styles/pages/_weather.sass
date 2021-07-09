@@ -1,7 +1,7 @@
-.weather-form, .weather-form-button, .weather-container, .weather-poster, .weather-info-wind, .weather-info-wind-item
+.weather-form, .weather-container, .weather-poster, .weather-info-wind, .weather-info-wind-item
     display: flex 
 
-.weather-form, .weather-form-button
+.weather-form
     justify-content: center
     align-items: center 
 
@@ -21,6 +21,8 @@
             animation: hide .5s forwards
 
     &-form 
+        margin-top: 1rem
+
         &-input
             max-width: 400px
             width: 80%
@@ -28,7 +30,11 @@
             & input 
                 color: $colorDefault
                 border-bottom: 1px solid $colorPrimary !important
-                box-shadow: 0 1px 0 0 $colorPrimary !important  
+                box-shadow: 0 1px 0 0 $colorPrimary !important
+
+                &[disabled] 
+                    color: #9e9e9e !important
+                    user-select: none !important
 
                 & + label.active
                     color: $colorPrimary !important
@@ -44,15 +50,29 @@
                         color: $colorPrimaryCardL !important
 
         &-button 
+            position: relative
             min-width: 56px
             margin-left: 3em
             background: $colorPrimary !important
-        
+
+            &__icon
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                transition: .3s
+
+                &:first-child.weather-form-button__icon--hide
+                    transform: translate(-50%, 110%) !important
+                    
+                &:last-child.weather-form-button__icon--hide
+                    transform: translate(-50%, -210%) !important
+
             &:hover 
                 background: $colorPrimaryCardL !important
     &-container 
         position: relative
-        margin-top: 2rem
+        margin-top: 1rem
 
     &-poster 
         flex-direction: column

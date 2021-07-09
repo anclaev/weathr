@@ -1,6 +1,6 @@
 import { IIcon } from '../../types/components'
 
-const icons = {
+export const Icons = {
   clouds: 'img/clouds.svg',
   cloudWithSun: 'img/cloudsun.svg',
   rain: 'img/rain.svg',
@@ -14,7 +14,7 @@ const icons = {
 const Icon: React.FC<IIcon> = (props) => (
   <img
     className={props.className}
-    src={icons[props.src as keyof typeof icons] ?? icons.sun}
+    src={Icons[props.src as keyof typeof Icons] ?? Icons.sun}
     alt={`Icon: ${props.src}`}
   />
 )

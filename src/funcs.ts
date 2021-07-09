@@ -1,11 +1,23 @@
 import { useState } from 'react'
+import { toast } from 'materialize-css'
+import axios from 'axios'
 
-// Weather API KEY: 9a2f3c0844d466865551ca8df54f619a
+const apiKey = '&APPID=9a2f3c0844d466865551ca8df54f619a'
 
 export enum TimeTypes {
   'h' = 'h',
   'm' = 'm',
   's' = 's',
+}
+
+export const WeatherIcons = {
+  пасмурно: 'clouds',
+  'переменная облачность': 'clouds',
+  'небольшой дождь': 'rain',
+  'облачно с прояснениями': 'cloudWithSun',
+  ясно: 'sun',
+  гроза: 'shtorm',
+  дождь: 'rain',
 }
 
 export const getHello = (): string => {
@@ -59,8 +71,13 @@ export const useInput = (initialValue: string, minLength?: number) => {
   const [value, setValue] = useState(initialValue)
   const [valid, setValid] = useState(false)
 
+  let min = minLength ?? 0
+
   const onChange = (e: any) => {
-    if (minLength) setValid(e.target.value.length >= minLength)
+    if (e.target.value.indexOf(' ') === -1 && e.target.value.length >= min) {
+      setValid(true)
+    } else setValid(false)
+
     setValue(e.target.value)
   }
 
@@ -68,6 +85,32 @@ export const useInput = (initialValue: string, minLength?: number) => {
     value,
     valid,
     setValue,
+    setValid,
     onChange,
   }
 }
+
+export const getWeather = async (city: string) => {
+  let req = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=ru${apiKey}`
+  let data = null
+  let error = ''
+
+  await axios
+    .get(req)
+    .then((res) => (data = res.data))
+    .catch((err) => {
+      error =
+        err.response.status === 404
+          ? 'Город не найден'
+          : 'Сервер временно недоступен'
+    })
+
+  return [data, error]
+}
+
+export const setWeatherIcon = (type: string) =>
+  WeatherIcons[type as keyof typeof WeatherIcons] ?? WeatherIcons.ясно
+
+export const convertTemp = (temp: number) => Math.round(temp - 273)
+
+export const showToast = (text: string) => toast({ html: text })
